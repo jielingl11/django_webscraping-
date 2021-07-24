@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Scraping Google results</title>
+    <style>
+        * {
+            margin: 0;
+            box-sizing: border-box;
+            font-family: "Bitstream Vera Sans Mono", Monaco, "Courier New", Courier, monospace;
+        }
+
+        #main {
+            text-align: center;
+            padding-top: 100px;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        input[type='text'] {
+            width: 30%;
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 2px solid black;
+        }
+
+        input[type='submit'] {
+            width: 10%;
+            padding: 5px;
+            background: black;
+            color: white;
+            text-transform: uppercase;
+            cursor: pointer;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+<div id="main">
+    <h1>Google Search</h1>
+    <form method="GET">
+        <div>
+            <label for="keyword"></label>
+            <input type="text" id="keyword" value="{{ request.GET.keyword }}" placeholder="keyword..." name="keyword"/>
+        </div>
+        <input type="submit" value="Submit"/>
+    </form>
+    {% if result %}
+        
+        <h5>{{result.link}}</h5>
+    
+    {% endif %}
+</div>
+</body>
+
+</html>
